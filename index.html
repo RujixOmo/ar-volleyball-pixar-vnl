@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08152f">
+  <title>Under Pass Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- MediaPipe Tasks Vision -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <section id="homeScreen" class="screen home-screen">
+      <div class="confetti c1"></div><div class="confetti c2"></div><div class="confetti c3"></div>
+      <div class="mascot mascot-left">🏐</div>
+      <div class="mascot mascot-right">⭐</div>
+
+      <header class="hero">
+        <div class="badge">PIXAR-STYLE SPORTS LAB</div>
+        <h1>UNDER PASS<br><span>CHALLENGE</span></h1>
+        <p>ฝึกทักษะการรับลูกบอลสองมือล่าง<br>ด้วยกล้องและ AI แบบสนุก ๆ</p>
+      </header>
+
+      <div class="coach-card">
+        <div class="coach-avatar">🧑‍🏫</div>
+        <div><strong>COACH MODE</strong><br><span>ยืนให้เห็นช่วงบนและแขนทั้งสองข้าง</span></div>
+      </div>
+
+      <label class="input-label" for="playerName">PLAYER NAME / ชื่อผู้เล่น</label>
+      <input id="playerName" maxlength="40" placeholder="พิมพ์ชื่อผู้เล่น">
+
+      <button id="startBtn" class="primary-btn">
+        <span>START GAME</span>
+        <b>เริ่มการผจญภัย! →</b>
+      </button>
+
+      <button id="leaderboardBtn" class="secondary-btn">🏆 LEADERBOARD</button>
+      <p class="footer-note">EDUCATIONAL GAME • PIXAR-INSPIRED • VNL-INSPIRED SPORTS ENERGY</p>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen hidden">
+      <video id="webcam" playsinline muted></video>
+      <canvas id="overlay"></canvas>
+
+      <div class="game-ui">
+        <div class="score-box"><span>SCORE</span><b id="score">0</b></div>
+        <div class="timer-box"><span>TIME</span><b id="timer">60</b></div>
+        <div class="combo-box"><span>COMBO</span><b id="combo">x0</b></div>
+      </div>
+
+      <div id="statusPanel" class="status-panel">
+        <strong id="statusTitle">กำลังเปิดกล้อง...</strong>
+        <span id="statusText">โปรดอนุญาตการใช้กล้อง</span>
+      </div>
+
+      <button id="exitBtn" class="exit-btn">✕</button>
+
+      <div id="tipBubble" class="tip-bubble">🤝 ประสานมือ เหยียดแขน และเตรียมรับลูก!</div>
+    </section>
+
+    <section id="resultScreen" class="screen result-screen hidden">
+      <div class="result-ball">🏐</div>
+      <div class="result-card">
+        <div class="badge">MISSION COMPLETE</div>
+        <h2>สุดยอดมาก! 🎉</h2>
+        <p id="resultName">PLAYER</p>
+        <div class="final-score"><span>FINAL SCORE</span><b id="finalScore">0</b></div>
+        <p id="saveStatus">กำลังบันทึกคะแนน...</p>
+        <button id="playAgainBtn" class="primary-btn"><span>PLAY AGAIN</span><b>เล่นอีกครั้ง! 🔄</b></button>
+        <button id="resultLeaderboardBtn" class="secondary-btn">🏆 ดูอันดับคะแนน</button>
+      </div>
+    </section>
+
+    <div id="leaderboardModal" class="modal hidden">
+      <div class="modal-card">
+        <button class="close-modal" id="closeLeaderboard">✕</button>
+        <div class="trophy">🏆</div>
+        <h2>LEADERBOARD</h2>
+        <p>นักกีฬาดาวเด่นประจำวัน</p>
+        <ol id="leaderboardList"><li>กำลังโหลด...</li></ol>
+      </div>
+    </div>
+
+    <div id="errorModal" class="modal hidden">
+      <div class="modal-card error-card">
+        <div class="trophy">📷</div>
+        <h2 id="errorTitle">เปิดกล้องไม่สำเร็จ</h2>
+        <p id="errorText"></p>
+        <button id="closeError" class="primary-btn"><b>ลองอีกครั้ง</b></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
