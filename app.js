@@ -2,7 +2,7 @@
    Deploy Code.gs as a Web App, then paste the /exec URL below.
    JSONP is used so GitHub Pages can communicate with Apps Script without CORS issues.
 ================================ */
-const API_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_EXEC_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbyoMd6XWC0uVWreRAe_awnT6Mf5EBYDvm_5veTkGexZY3PNy-ETpsWwoTevThxrzoo0/exec";
 const GAME_SECONDS = 60;
 const CALIBRATION_FRAMES = 45;
 
