@@ -1,0 +1,86 @@
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --navy:#07152f;--navy2:#10113b;--blue:#1677ff;--purple:#7138f5;--pink:#ed168b;
+  --gold:#ffd95a;--ice:#8ed4ff;--white:#fff;--ink:#13213e;--muted:#6d7891;
+}
+html,body{margin:0;min-height:100%;background:#020817;color:var(--white);font-family:"Kanit",sans-serif}
+body{min-height:100vh;min-height:100dvh}
+button,input{font:inherit}
+button{cursor:pointer}
+.app-shell{position:relative;width:min(100%,560px);min-height:100vh;min-height:100dvh;margin:0 auto;overflow:hidden;background:
+ radial-gradient(ellipse at 8% 16%,rgba(99,44,221,.4),transparent 31%),
+ radial-gradient(ellipse at 95% 79%,rgba(237,22,139,.24),transparent 30%),
+ linear-gradient(145deg,#07152f 0%,#090f2c 55%,#17103c 100%);box-shadow:0 0 60px #0008}
+.screen{position:relative;min-height:100vh;min-height:100dvh;padding:26px 25px 24px}
+.hidden{display:none!important}
+.home-screen{isolation:isolate}
+.background-orb{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none;z-index:-1}
+.orb-one{width:220px;height:220px;left:-105px;top:215px;background:radial-gradient(circle,#652de8aa,transparent 70%)}
+.orb-two{width:230px;height:230px;right:-130px;bottom:180px;background:radial-gradient(circle,#ec168b88,transparent 70%)}
+.speed-line{position:absolute;z-index:-1;width:3px;height:250px;background:linear-gradient(transparent,#ffffff25,transparent);transform:rotate(24deg);pointer-events:none}
+.line-one{top:70px;right:18%}.line-two{bottom:120px;left:13%;height:280px}
+.floating-ball,.floating-star{position:absolute;z-index:-1;filter:drop-shadow(0 12px 12px #0008);pointer-events:none}
+.floating-ball{font-size:64px;left:-15px;top:340px;transform:rotate(-18deg);opacity:.88}
+.floating-star{font-size:42px;right:-4px;top:155px;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px) rotate(9deg)}}
+.hero{text-align:center;padding-top:4px}
+.brand-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid #ffffff30;border-radius:30px;background:#ffffff12;color:#9bd4ff;font-size:11px;font-weight:800;letter-spacing:2px}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:#ffd95a;box-shadow:0 0 12px #ffd95a}
+.hero h1{margin:22px 0 12px;font-family:"Baloo 2","Kanit",sans-serif;font-weight:800;font-size:clamp(39px,11vw,58px);line-height:.91;letter-spacing:1px;text-shadow:0 5px 0 #0004}
+.hero h1 span{color:#82cfff}
+.hero-thai{margin:16px 0 8px;color:#e4ebff;font-size:17px;line-height:1.55}
+.coach-credit{margin-top:12px;color:#a8b9e0;font-size:10px;font-weight:700;letter-spacing:2px}
+.coach-card{display:flex;align-items:center;gap:12px;margin:25px 0 20px;padding:14px 16px;border:1px solid #ffffff26;border-radius:22px;background:linear-gradient(110deg,#ffffff20,#ffffff09);box-shadow:0 12px 28px #0002}
+.coach-avatar{display:grid;place-items:center;width:48px;height:48px;flex:none;border-radius:17px;background:linear-gradient(145deg,#fff4b5,#ffbe55);font-size:29px}
+.coach-copy{flex:1;min-width:0}.coach-copy strong{color:var(--gold);font-family:"Baloo 2";letter-spacing:1.4px;font-size:16px}.coach-copy span{display:block;color:#e1e8fa;font-size:13px}
+.coach-star{font-size:23px}
+.input-label{display:block;margin:8px 0;color:#9ed2ff;font-weight:800;letter-spacing:1.7px;font-size:13px}
+.player-input{display:block;width:100%;min-height:58px;padding:15px 19px;border:2px solid #ffffff30;border-radius:20px;background:#fff;color:var(--ink);font-size:19px;outline:none;box-shadow:0 8px 18px #0002}
+.player-input:focus{border-color:#80c8ff;box-shadow:0 0 0 4px #80c8ff30}
+.how-card{margin-top:19px;padding:18px 19px;border:1px solid #ffffff26;border-radius:24px;background:linear-gradient(145deg,#ffffff18,#ffffff08);backdrop-filter:blur(8px)}
+.how-heading{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}.how-heading span{color:#ffb16a;font-family:"Baloo 2";font-size:14px;font-weight:800;letter-spacing:1.8px}.how-heading strong{font-size:19px}
+.how-row{display:flex;align-items:center;gap:12px;margin:12px 0}.step-bubble{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:13px;background:linear-gradient(145deg,#1677ff,#7138f5);color:#fff;font-family:"Baloo 2";font-weight:800}.how-row strong{display:block;font-size:15px}.how-row small{display:block;color:#c1cce5;font-size:12px}
+.primary-btn,.secondary-btn{position:relative;display:block;width:100%;border:0;border-radius:22px}
+.primary-btn{margin-top:20px;padding:13px 60px 14px 22px;text-align:left;color:#fff;background:linear-gradient(105deg,#1479ff 0%,#6f36f4 57%,#ed168b 100%);box-shadow:0 12px 28px #0005, inset 0 1px 0 #ffffff40}
+.button-eyebrow{display:block;font-family:"Baloo 2";font-size:12px;font-weight:800;letter-spacing:2px;opacity:.8}.primary-btn strong{display:block;font-size:23px;font-weight:800}.button-arrow{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:30px}
+.primary-btn:active{transform:translateY(2px);filter:brightness(1.08)}
+.secondary-btn{margin-top:12px;padding:14px;border:1px solid #ffffff45;background:#ffffff0b;color:#fff;font-family:"Baloo 2";font-size:17px;font-weight:800;letter-spacing:.8px}
+.footer-note{margin:24px 0 4px;text-align:center;color:#8290b4;font-family:"Baloo 2";font-size:10px;letter-spacing:1.4px}
+
+/* Game */
+.game-screen{padding:0;background:#000;overflow:hidden}
+.game-screen video,.game-screen canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.game-screen video{transform:scaleX(-1)}
+.game-screen canvas{z-index:2;pointer-events:none}
+.camera-shade{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(180deg,#0009,transparent 27%,transparent 70%,#0006)}
+.game-hud{position:absolute;z-index:5;top:max(12px,env(safe-area-inset-top));left:12px;right:12px;display:flex;align-items:flex-start;justify-content:space-between;gap:7px}
+.hud-card{min-width:76px;padding:8px 10px;border:1px solid #ffffff36;border-radius:15px;background:#07152fe0;backdrop-filter:blur(8px);text-align:center}
+.hud-card span,.hud-center span{display:block;color:#a9d4ff;font-family:"Baloo 2";font-size:10px;font-weight:800;letter-spacing:1.6px}
+.hud-card strong{display:block;font-family:"Baloo 2";font-size:29px;line-height:1.05}
+.hud-center{padding-top:5px;text-align:center;color:#fff;text-shadow:0 2px 8px #000}.hud-center strong{display:inline-block;margin-top:3px;padding:3px 9px;border-radius:20px;background:#7138f5;color:#fff;font-size:11px}
+.status-panel{position:absolute;z-index:5;top:112px;left:50%;width:min(90%,390px);padding:13px 17px;transform:translateX(-50%);border:1px solid #ffffff40;border-radius:20px;background:#07152fe8;color:#fff;text-align:center;backdrop-filter:blur(9px)}
+.status-icon{font-size:25px}.status-panel strong{display:block;font-size:16px}.status-panel>span{display:block;color:#d5e1f7;font-size:12px}
+.progress-track{height:7px;margin-top:10px;overflow:hidden;border-radius:10px;background:#ffffff22}.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#16d99a,#d4f65a);transition:width .12s}
+.feedback{position:absolute;z-index:7;top:40%;left:50%;transform:translateX(-50%);color:#fff;font-family:"Baloo 2";font-size:clamp(35px,10vw,56px);font-weight:800;text-shadow:0 4px 16px #ed168b;white-space:nowrap;pointer-events:none}
+.feedback.pop{animation:pop .65s ease-out}
+@keyframes pop{0%{opacity:0;transform:translateX(-50%) scale(.4)}35%{opacity:1;transform:translateX(-50%) scale(1.15)}100%{opacity:0;transform:translateX(-50%) scale(1)}}
+.tip-bubble{position:absolute;z-index:5;left:50%;bottom:max(22px,env(safe-area-inset-bottom));width:88%;transform:translateX(-50%);padding:12px 15px;border-radius:18px;background:#fff;color:#162341;text-align:center;font-size:13px;font-weight:700;box-shadow:0 8px 22px #0005}
+.exit-btn{position:absolute;z-index:8;right:14px;bottom:100px;width:43px;height:43px;border:1px solid #ffffff60;border-radius:50%;background:#07152fdc;color:#fff;font-size:19px}
+
+/* Result and modals */
+.result-screen{display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 10%,#7138f5aa,transparent 35%)}
+.result-decoration{position:absolute;top:7%;font-size:95px;filter:drop-shadow(0 12px 12px #0005);animation:float 2.5s ease-in-out infinite}
+.result-card{position:relative;z-index:2;width:100%;margin-top:90px;padding:26px 22px 24px;border:1px solid #ffffff70;border-radius:30px;background:#fff;color:var(--ink);text-align:center;box-shadow:0 20px 55px #0006}
+.result-badge{display:inline-block;padding:5px 12px;border-radius:20px;background:#e9efff;color:#6236d9;font-family:"Baloo 2";font-size:12px;font-weight:800;letter-spacing:1.5px}
+.result-trophy{margin-top:9px;font-size:58px}.result-card h2{margin:0;font-family:"Baloo 2";font-size:36px}.result-player{color:#ed168b;font-weight:700}
+.final-score{margin:16px 0;padding:14px;border-radius:22px;background:linear-gradient(120deg,#e8f2ff,#ffebf5)}
+.final-score span{display:block;color:#58627a;font-family:"Baloo 2";font-size:12px;font-weight:800;letter-spacing:2px}.final-score strong{display:block;color:#6438dd;font-family:"Baloo 2";font-size:76px;line-height:1}
+.save-status{min-height:24px;color:#65718a;font-size:13px}.result-action{margin-top:12px}.result-secondary{color:var(--ink);border-color:#d6dceb;background:#f7f9ff}
+.modal{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:20px;background:#020817bb;backdrop-filter:blur(5px)}
+.modal-card{position:relative;width:min(100%,430px);max-height:85vh;overflow:auto;padding:27px 22px;border-radius:28px;background:#fff;color:var(--ink);text-align:center;box-shadow:0 25px 70px #0008}
+.close-modal{position:absolute;top:12px;right:12px;width:36px;height:36px;border:0;border-radius:50%;background:#eef2fb;color:#26324b;font-size:17px}
+.modal-trophy{font-size:53px}.modal-kicker{color:#ed168b;font-family:"Baloo 2";font-size:11px;font-weight:800;letter-spacing:1.5px}
+.modal-card h2{margin:2px 0 15px;font-family:"Baloo 2";font-size:29px}
+.leaderboard-list{padding-left:27px;text-align:left}.leaderboard-list li{padding:11px 6px;border-bottom:1px solid #e8ebf3;font-weight:600}.leaderboard-list li span{float:right;color:#7138f5;font-family:"Baloo 2";font-size:20px}
+.error-card p{color:#4c5870;line-height:1.6;white-space:pre-line;overflow-wrap:anywhere}.modal-action{text-align:center;padding:15px}
+@media(min-width:700px){.app-shell{box-shadow:0 0 70px #000}.screen{min-height:850px}}

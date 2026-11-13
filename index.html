@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07152f">
+  <meta name="description" content="Under Pass Challenge - เกมฝึกทักษะรับลูกวอลเลย์บอลด้วยกล้องและ AI">
+  <title>Under Pass Challenge | Pixar-inspired VNL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Kanit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <!-- HOME -->
+    <section id="homeScreen" class="screen home-screen">
+      <div class="background-orb orb-one"></div>
+      <div class="background-orb orb-two"></div>
+      <div class="speed-line line-one"></div>
+      <div class="speed-line line-two"></div>
+
+      <div class="floating-ball" aria-hidden="true">🏐</div>
+      <div class="floating-star" aria-hidden="true">⭐</div>
+
+      <header class="hero">
+        <div class="brand-pill"><span class="brand-dot"></span> PIXAR-INSPIRED SPORTS LAB</div>
+        <h1>UNDER PASS<br><span>CHALLENGE</span></h1>
+        <p class="hero-thai">ฝึกทักษะการรับลูกบอลสองมือล่าง<br>ผ่านเกมตรวจจับท่าทางด้วย AI</p>
+        <div class="coach-credit">COACH MODE · LEARN THROUGH PLAY</div>
+      </header>
+
+      <section class="coach-card">
+        <div class="coach-avatar" aria-hidden="true">🧑‍🏫</div>
+        <div class="coach-copy">
+          <strong>READY, PLAYER?</strong>
+          <span>ยืนให้เห็นไหล่ ข้อศอก และมือทั้งสองข้าง</span>
+        </div>
+        <div class="coach-star" aria-hidden="true">✨</div>
+      </section>
+
+      <label class="input-label" for="playerName">PLAYER NAME / ชื่อผู้เล่น</label>
+      <input id="playerName" class="player-input" type="text" maxlength="30"
+             placeholder="กรอกชื่อหรือรหัสผู้เล่น" autocomplete="name">
+
+      <div class="how-card">
+        <div class="how-heading">
+          <span>HOW TO PLAY</span>
+          <strong>กติกาการเล่น</strong>
+        </div>
+        <div class="how-row">
+          <span class="step-bubble">01</span>
+          <div><strong>เปิดกล้อง</strong><small>อนุญาตให้เว็บไซต์ใช้งานกล้อง</small></div>
+        </div>
+        <div class="how-row">
+          <span class="step-bubble">02</span>
+          <div><strong>เตรียมท่าอันเดอร์</strong><small>ประสานมือและเหยียดแขนด้านหน้า</small></div>
+        </div>
+        <div class="how-row">
+          <span class="step-bubble">03</span>
+          <div><strong>ผ่านการปรับเทียบ</strong><small>รักษาท่าที่ระบบตรวจจับประมาณ 1.5 วินาที</small></div>
+        </div>
+        <div class="how-row">
+          <span class="step-bubble">04</span>
+          <div><strong>รับลูกให้ได้มากที่สุด</strong><small>เวลาแข่งขัน 3 นาที</small></div>
+        </div>
+      </div>
+
+      <button id="startBtn" class="primary-btn">
+        <span class="button-eyebrow">START GAME</span>
+        <strong>เริ่มการแข่งขัน!</strong>
+        <span class="button-arrow">➜</span>
+      </button>
+      <button id="leaderboardBtn" class="secondary-btn">🏆 &nbsp; LEADERBOARD</button>
+
+      <p class="footer-note">EDUCATIONAL GAME · PIXAR-INSPIRED · VNL-INSPIRED VISUAL THEME</p>
+    </section>
+
+    <!-- GAME -->
+    <section id="gameScreen" class="screen game-screen hidden">
+      <video id="webcam" autoplay playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div class="camera-shade"></div>
+
+      <header class="game-hud">
+        <div class="hud-card score-card"><span>SCORE</span><strong id="score">0</strong></div>
+        <div class="hud-center"><span>UNDER PASS</span><strong id="phaseLabel">CALIBRATION</strong></div>
+        <div class="hud-card timer-card"><span>TIME</span><strong id="timer">03:00</strong></div>
+      </header>
+
+      <div id="statusPanel" class="status-panel">
+        <div class="status-icon">🏐</div>
+        <strong id="statusTitle">กำลังเปิดกล้อง</strong>
+        <span id="statusText">โปรดอนุญาตให้เว็บไซต์ใช้กล้อง</span>
+        <div class="progress-track"><div id="calibrationProgress" class="progress-fill"></div></div>
+      </div>
+
+      <div id="feedback" class="feedback hidden">PERFECT! +1</div>
+      <div id="tipBubble" class="tip-bubble">🤝 ประสานมือ เหยียดแขน และเตรียมรับลูก!</div>
+      <button id="exitBtn" class="exit-btn" aria-label="ออกจากเกม">✕</button>
+    </section>
+
+    <!-- RESULT -->
+    <section id="resultScreen" class="screen result-screen hidden">
+      <div class="result-decoration">🏐</div>
+      <div class="result-card">
+        <div class="result-badge">MISSION COMPLETE</div>
+        <div class="result-trophy">🏆</div>
+        <h2>สุดยอดมาก!</h2>
+        <p class="result-player" id="resultName">PLAYER</p>
+        <div class="final-score">
+          <span>FINAL SCORE</span>
+          <strong id="finalScore">0</strong>
+        </div>
+        <p id="saveStatus" class="save-status">กำลังบันทึกคะแนน...</p>
+        <button id="playAgainBtn" class="primary-btn result-action">
+          <span class="button-eyebrow">PLAY AGAIN</span>
+          <strong>เล่นอีกครั้ง!</strong>
+          <span class="button-arrow">↻</span>
+        </button>
+        <button id="resultLeaderboardBtn" class="secondary-btn result-secondary">🏆 &nbsp; ดูอันดับคะแนน</button>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD MODAL -->
+    <div id="leaderboardModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="leaderboardTitle">
+      <div class="modal-card">
+        <button id="closeLeaderboard" class="close-modal" aria-label="ปิด">✕</button>
+        <div class="modal-trophy">🏆</div>
+        <div class="modal-kicker">THE ALL-STAR PLAYERS</div>
+        <h2 id="leaderboardTitle">LEADERBOARD</h2>
+        <ol id="leaderboardList" class="leaderboard-list"><li>กำลังโหลด...</li></ol>
+      </div>
+    </div>
+
+    <!-- ERROR MODAL -->
+    <div id="errorModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="errorTitle">
+      <div class="modal-card error-card">
+        <div class="modal-trophy">📷</div>
+        <h2 id="errorTitle">เกิดข้อผิดพลาด</h2>
+        <p id="errorText"></p>
+        <button id="closeError" class="primary-btn modal-action"><strong>ปิดข้อความ</strong></button>
+      </div>
+    </div>
+  </main>
+
+  <!-- app.js is a JavaScript module. MediaPipe is imported dynamically from within it. -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
